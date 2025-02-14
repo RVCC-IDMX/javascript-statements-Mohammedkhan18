@@ -18,7 +18,7 @@
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger
  */
 function isInteger(value) {
-  // Implementation goes here.
+  return typeof value == 'number' && Number.isInteger(value);
 }
 
 /**
@@ -28,7 +28,13 @@ function isInteger(value) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder
  */
 function isOdd(num) {
-  // Implementation goes here.
+  if (!isInteger(num)) {
+    return false;
+  } else {
+    return num % 2 !== 0;
+  }
+
+
 }
 
 /**
@@ -38,7 +44,11 @@ function isOdd(num) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder
  */
 function isEven(num) {
-  // Implementation goes here.
+  if (!isInteger(num)) {
+    return false;
+  } else {
+    return num % 2 === 0;
+  }
 }
 
 /**
@@ -48,7 +58,11 @@ function isEven(num) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#relational_operators
  */
 function isNegative(value) {
-  // Implementation goes here.
+  if (!isInteger(value)) {
+    return false;
+  } else {
+    return value < 0;
+  }
 }
 
 /**
@@ -58,7 +72,11 @@ function isNegative(value) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#relational_operators
  */
 function isPositive(num) {
-  // Implementation goes here.
+  if (!isInteger(num)) {
+    return false;
+  } else {
+    return num > 0;
+  }
 }
 
 /**
@@ -67,7 +85,11 @@ function isPositive(num) {
  * @returns {boolean} - True if num is exactly 0; false otherwise.
  */
 function isZero(num) {
-  // Implementation goes here.
+  if (!isInteger(num)) {
+    return false;
+  } else {
+    return num === 0;
+  }
 }
 
 /**
@@ -76,7 +98,11 @@ function isZero(num) {
  * @returns {boolean} - True if num is an integer and 0 or positive; false otherwise.
  */
 function isNonNegative(num) {
-  // Implementation goes here.
+  if (!isInteger(num)) {
+    return false;
+  } else {
+    return num >= 0;
+  }
 }
 
 /**
@@ -87,7 +113,11 @@ function isNonNegative(num) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder
  */
 function isDivisibleBy(a, b) {
-  // Implementation goes here.
+  if (!isInteger(a) || !isInteger(b)) {
+    return false;
+  } else {
+    return b != 0 && a % b === 0;
+  }
 }
 
 /**
@@ -99,7 +129,11 @@ function isDivisibleBy(a, b) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#relational_operators
  */
 function isBetween(num, min, max) {
-  // Implementation goes here.
+  if (!isInteger(num) || !isInteger(min) || !isInteger(max)) {
+    return false;
+  } else {
+    return num >= min && num <= max;
+  }
 }
 
 /**
@@ -109,7 +143,14 @@ function isBetween(num, min, max) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt
  */
 function isSquare(num) {
-  // Implementation goes here.
+  if (!isInteger(num)) {
+    return false;
+  } else if (num < 0) {
+    return false;
+  } else {
+    const root = Math.sqrt(num);
+    return isInteger(root);
+  }
 }
 
 /**
@@ -119,7 +160,12 @@ function isSquare(num) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/cbrt
  */
 function isCube(num) {
-  // Implementation goes here.
+  if (!isInteger(num)) {
+    return false;
+  } else {
+    const cubeRoot = Math.cbrt(num);
+    return isInteger(cubeRoot);
+  }
 }
 
 // DO NOT EDIT THE FOLLOWING EXPORT STATEMENT.
